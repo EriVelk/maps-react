@@ -30,8 +30,8 @@ class ListPointComponent extends Component{
 
     render(){
         return(
-            <div>
-                <h2 className="text-center">Points List</h2>
+            <div className="mt-2">
+                <h2 className="text-center">Lista de Puntos</h2>
                 <div className="row">
                     <button className="btn btn-primary" onClick={this.addPoint}>Agregar Punto</button>
                 </div>
@@ -51,9 +51,9 @@ class ListPointComponent extends Component{
                             </div>
                             <div className="card-footer">
                             <div className="btn-group">
-                                        <button onClick={ () => this.editEmployee(point._id)} className="btn btn-secondary">Update </button>
-                                        <button onClick={ () => this.deleteEmployee(point._id)} className="btn btn-danger">Delete </button>
-                                        <button onClick={ () => this.viewPoint(point._id)} className="btn btn-success">View </button>
+                                        <button onClick={ () => this.editEmployee(point._id)} className="btn btn-secondary">Actualizar </button>
+                                        <button onClick={ () => this.deleteEmployee(point._id)} className="btn btn-danger">Borrar </button>
+                                        <button onClick={ () => this.viewPoint(point._id)} className="btn btn-success">Detalles </button>
                                         </div>
                             </div>
                         </div>
