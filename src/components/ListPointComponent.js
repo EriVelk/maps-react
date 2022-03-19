@@ -18,6 +18,17 @@ class ListPointComponent extends Component{
         this.props.history.push(`/points/${id}`);
     }
 
+    deletePoint(id){
+        PointService.deletePoint(id).then(res => {
+            this.setState({points: this.state.points.filter(point => point._id !== id)})
+        })
+    }
+
+    editPoint(id){
+        this.props.history.push(`/create/${id}`);
+    }
+    
+
     componentDidMount(){
         PointService.getPoints().then((res)=>{
             this.setState({points: res.data})
@@ -51,8 +62,8 @@ class ListPointComponent extends Component{
                             </div>
                             <div className="card-footer">
                             <div className="btn-group">
-                                        <button onClick={ () => this.editEmployee(point._id)} className="btn btn-secondary">Actualizar </button>
-                                        <button onClick={ () => this.deleteEmployee(point._id)} className="btn btn-danger">Borrar </button>
+                                        <button onClick={ () => this.editPoint(point._id)} className="btn btn-secondary">Actualizar </button>
+                                        <button onClick={ () => this.deletePoint(point._id)} className="btn btn-danger">Borrar </button>
                                         <button onClick={ () => this.viewPoint(point._id)} className="btn btn-success">Detalles </button>
                                         </div>
                             </div>

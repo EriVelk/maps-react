@@ -17,6 +17,11 @@ class PointService{
         return axios.get(POINTS_API_BASE_URL + 'points/' + pointId);
     }
 
+    deletePoint(pointId){
+        return axios.delete(POINTS_API_BASE_URL + 'points/delete/' + 
+         pointId)
+    }
+
 }
 
 export default new PointService()
