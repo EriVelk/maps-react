@@ -59,6 +59,8 @@ class ListPointComponent extends Component{
                                 Direccion: {point.direccion}
                             <hr></hr>
                                 Rating: {point.rating}
+                            <hr></hr>
+                                Status: {point.status}
                             </div>
                             <div className="card-footer">
                             <div className="btn-group">
