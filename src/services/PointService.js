@@ -22,6 +22,10 @@ class PointService{
          pointId)
     }
 
+    statusPointbyId(pointId){
+        return axios.get(POINTS_API_BASE_URL + 'points/' + pointId + '/status');
+    }
+
 }
 
 export default new PointService()

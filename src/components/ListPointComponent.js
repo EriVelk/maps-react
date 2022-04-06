@@ -39,6 +39,12 @@ class ListPointComponent extends Component{
         this.props.history.push(`/create/_add`);
     }
 
+    editStatus(id){
+        PointService.statusPointbyId(id).then((res) =>{
+            console.log(res.status);
+        })
+    }
+
     render(){
         return(
             <div className="mt-2">
@@ -60,7 +66,7 @@ class ListPointComponent extends Component{
                             <hr></hr>
                                 Rating: {point.rating}
                             <hr></hr>
-                                Status: {point.status}
+                                Status: <button onClick={ () => this.editStatus(point._id)} className="btn btn-success">Activo </button>
                             </div>
                             <div className="card-footer">
                             <div className="btn-group">
