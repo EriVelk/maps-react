@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import PointService from "../services/PointService";
 
-class ListPointComponent extends Component{
+class ListPointComponent extends Component {
 
 
-    constructor(props){
+    constructor(props) {
         super(props)
 
         this.state = {
@@ -14,70 +14,73 @@ class ListPointComponent extends Component{
         this.addPoint = this.addPoint.bind(this);
     }
 
-    viewPoint(id){
+    viewPoint(id) {
         this.props.history.push(`/points/${id}`);
     }
 
-    deletePoint(id){
+    deletePoint(id) {
         PointService.deletePoint(id).then(res => {
-            this.setState({points: this.state.points.filter(point => point._id !== id)})
+            this.setState({ points: this.state.points.filter(point => point._id !== id) })
         })
     }
 
-    editPoint(id){
+    editPoint(id) {
         this.props.history.push(`/create/${id}`);
     }
-    
 
-    componentDidMount(){
-        PointService.getPoints().then((res)=>{
-            this.setState({points: res.data})
+
+    componentDidMount() {
+        PointService.getPoints().then((res) => {
+            this.setState({ points: res.data })
         })
     }
 
-    addPoint(){
+    addPoint() {
         this.props.history.push(`/create/_add`);
     }
 
-    editStatus(id){
-        PointService.statusPointbyId(id).then((res) =>{
-            console.log(res.status);
-        })
-    }
 
-    render(){
-        return(
+    render() {
+        return (
             <div className="mt-2">
-                <h2 className="text-center">Lista de Puntos</h2>
+                <h2 className="text-center">Puntos de Interes</h2>
                 <div className="row">
                     <button className="btn btn-primary" onClick={this.addPoint}>Agregar Punto</button>
                 </div>
                 <br></br>
                 <div className="row row-cols-1 row-cols-md-2 g-4">
                     {
-                            this.state.points.map( (point, i) => 
-                    <div key={i} className="col">
-                        <div className="card">
-                            <div className="card-header">
-                            { point.nombre}
-                            </div>
-                            <div className="card-body">
-                                Direccion: {point.direccion}
-                            <hr></hr>
-                                Rating: {point.rating}
-                            <hr></hr>
-                                Status: <button onClick={ () => this.editStatus(point._id)} className="btn btn-success">Activo </button>
-                            </div>
-                            <div className="card-footer">
-                            <div className="btn-group">
-                                        <button onClick={ () => this.editPoint(point._id)} className="btn btn-secondary">Actualizar </button>
-                                        <button onClick={ () => this.deletePoint(point._id)} className="btn btn-danger">Borrar </button>
-                                        <button onClick={ () => this.viewPoint(point._id)} className="btn btn-success">Detalles </button>
+                        this.state.points.map((point, i) =>
+                            <div key={i} className="col">
+                                <div className="card">
+                                    <div className="card-header">
+                                        {point.nombre}
+                                    </div>
+                                    <div className="card-body">
+                                        Direccion: {point.direccion}
+                                        <hr></hr>
+                                        Rating: {point.rating}
+                                        <hr></hr>
+                                        {
+                                            (point.status) ? (<div class="d-grid gap-2">
+                                                <div className="badge bg-success text-wrap">Activo</div>
+                                            </div>)
+                                                : (<div class="d-grid gap-2">
+                                                <div className="badge bg-danger text-wrap">Inactivo</div>
+                                            </div>)
+                                        }
+
+                                    </div>
+                                    <div className="card-footer">
+                                        <div className="btn-group">
+                                            <button onClick={() => this.editPoint(point._id)} className="btn btn-secondary">Actualizar </button>
+                                            <button onClick={() => this.deletePoint(point._id)} className="btn btn-danger">Borrar </button>
+                                            <button onClick={() => this.viewPoint(point._id)} className="btn btn-success">Detalles </button>
                                         </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                            )}
+                        )}
                 </div>
             </div>
         )
