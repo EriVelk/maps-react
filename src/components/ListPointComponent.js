@@ -57,9 +57,11 @@ class ListPointComponent extends Component {
                                         {point.nombre}
                                     </div>
                                     <div className="card-body">
-                                        Direccion: {point.direccion}
+                                        Alcaldia: {point.alcaldia}
                                         <hr></hr>
                                         Rating: {point.rating}
+                                        <hr></hr>
+                                        Numero de reportes: {point.reportes.length}
                                         <hr></hr>
                                         {
                                             (point.status) ? (<div class="d-grid gap-2">

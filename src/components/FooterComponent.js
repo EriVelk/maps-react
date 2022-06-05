@@ -13,7 +13,7 @@ class FooterComponent extends Component{
         return (
             <div>
                 <footer className = "footer">
-                    <span className="text-muted">@erve</span>
+                    <a className='btn btn-secondary' href='https://github.com/EriVelk/maps-react' target='_blank' rel="noreferrer">Github</a>
                 </footer>
             </div>
         )
