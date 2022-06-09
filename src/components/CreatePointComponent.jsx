@@ -8,7 +8,7 @@ class CreatePointComponent extends Component{
         this.state = {
             id:this.props.match.params.id,
             nombre: '',
-            direccion: '',
+            alcaldia: '',
             imagen: '',
             latitud: '',
             longitud: '',
@@ -31,7 +31,7 @@ class CreatePointComponent extends Component{
                 let point = res.data;
                 this.setState({
                     nombre:point.nombre,
-                    direccion:point.direccion,
+                    alcaldia:point.alcaldia,
                     imagen:point.imagen,
                     latitud: point.latitud,
                     longitud:point.longitud,
@@ -61,7 +61,7 @@ class CreatePointComponent extends Component{
     }
 
     changeDireccionHandler = (event) =>{
-        this.setState({direccion: event.target.value});
+        this.setState({alcaldia: event.target.value});
     }
 
     changeImagenHandler = (event) =>{
@@ -110,9 +110,9 @@ class CreatePointComponent extends Component{
                                             value={this.state.nombre} onChange={this.changeNombreHandler}/>
                                     </div>
                                     <div className = "form-group">
-                                        <label> Direccion: </label>
-                                        <input placeholder="direccion" name="direccion" className="form-control" 
-                                            value={this.state.direccion} onChange={this.changeDireccionHandler}/>
+                                        <label> Alcaldia: </label>
+                                        <input placeholder="alcaldia" name="alcaldia" className="form-control" 
+                                            value={this.state.alcaldia} onChange={this.changeDireccionHandler}/>
                                     </div>
                                     <div className = "form-group">
                                         <label> Imagen: </label>
