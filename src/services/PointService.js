@@ -10,7 +10,7 @@ class PointService{
     }
 
     createPoint(point){
-        return axios.post(POINTS_API_BASE_URL, point);
+        return axios.post(POINTS_API_BASE_URL + "api/maps/", point);
     }
 
     getPointById(pointId){
@@ -18,12 +18,12 @@ class PointService{
     }
 
     deletePoint(pointId){
-        return axios.delete(POINTS_API_BASE_URL + 'points/delete/' + 
+        return axios.delete(POINTS_API_BASE_URL + 'api/maps/points/delete/' + 
          pointId)
     }
 
     statusPointbyId(pointId){
-        return axios.get(POINTS_API_BASE_URL + 'points/' + pointId + '/status');
+        return axios.get(POINTS_API_BASE_URL + 'api/maps/points/' + pointId + '/status');
     }
 
 }
