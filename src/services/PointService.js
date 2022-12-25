@@ -6,7 +6,7 @@ class PointService{
 
 
     getPoints(){
-        return axios.get(POINTS_API_BASE_URL + "points");
+        return axios.get(POINTS_API_BASE_URL + "api/static");
     }
 
     createPoint(point){
