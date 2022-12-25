@@ -14,7 +14,7 @@ class PointService{
     }
 
     getPointById(pointId){
-        return axios.get(POINTS_API_BASE_URL + 'points/' + pointId);
+        return axios.get(POINTS_API_BASE_URL + 'api/maps/points/' + pointId);
     }
 
     deletePoint(pointId){
